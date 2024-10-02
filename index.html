@@ -97,7 +97,7 @@
             min-height: 25px;
             transition: color 0.3s;
         }
-        .loan-btn {
+        .loan-btn, .repay-btn {
             background-color: #d32f2f;
             border: none;
             color: white;
@@ -111,9 +111,12 @@
             border-radius: 25px;
             transition: background-color 0.3s, transform 0.3s;
         }
-        .loan-btn:hover {
+        .loan-btn:hover, .repay-btn:hover {
             background-color: #c62828;
             transform: scale(1.05);
+        }
+        .repay-btn {
+            display: none; /* Initially hidden */
         }
         @media (max-width: 600px) {
             .reel {
@@ -150,6 +153,7 @@
     <input type="number" id="betAmount" class="bet-input" min="1" max="100" value="10" placeholder="Enter bet amount">
     <button class="spin-btn" onclick="spin()">SPIN</button>
     <button class="loan-btn" onclick="takeLoan()">💸 Взять кредит</button>
+    <button class="repay-btn" onclick="repayLoan()" id="repayLoanBtn">💰 Погасить кредит</button>
 </div>
 
 <script>
@@ -159,6 +163,7 @@ let debt = 0;
 const balanceDisplay = document.getElementById('balance');
 const betInput = document.getElementById('betAmount');
 const message = document.getElementById('message');
+const repayLoanBtn = document.getElementById('repayLoanBtn');
 const reels = [
     document.getElementById('reel1'),
     document.getElementById('reel2'),
@@ -168,6 +173,7 @@ const reels = [
 function updateBalance(amount) {
     balance += amount;
     balanceDisplay.textContent = balance;
+    updateRepayButtonVisibility();
 }
 
 function takeLoan() {
@@ -184,11 +190,24 @@ function takeLoan() {
 }
 
 function repayLoan() {
-    if (balance >= debt * 1.1) {
-        updateBalance(-debt * 1.1);
+    const repaymentAmount = debt * 1.1;
+    if (balance >= repaymentAmount) {
+        updateBalance(-repaymentAmount);
         debt = 0;
         message.textContent = "Кредит успешно погашен!";
         message.style.color = "#4CAF50";
+        updateRepayButtonVisibility();
+    } else {
+        message.textContent = "Недостаточно средств для погашения кредита!";
+        message.style.color = "red";
+    }
+}
+
+function updateRepayButtonVisibility() {
+    if (debt > 0) {
+        repayLoanBtn.style.display = "inline-block";
+    } else {
+        repayLoanBtn.style.display = "none";
     }
 }
 
@@ -242,4 +261,5 @@ function spin() {
 </script>
 </body>
 </html>
+
 
