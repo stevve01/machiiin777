@@ -118,6 +118,22 @@
         .repay-btn {
             display: none; /* Initially hidden */
         }
+        footer {
+            margin-top: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            font-size: 14px;
+        }
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
         @media (max-width: 600px) {
             .reel {
                 width: 60px;
@@ -130,6 +146,10 @@
             }
             .balance, .money-icon {
                 font-size: 24px;
+            }
+            footer {
+                font-size: 12px;
+                padding: 10px;
             }
         }
     </style>
@@ -156,6 +176,12 @@
     <button class="repay-btn" onclick="repayLoan()" id="repayLoanBtn">💰 Погасить кредит</button>
 </div>
 
+<footer>
+    <p>Website: <a href="https://casino_naeb.com">Casino_naeb.com</a></p>
+    <p>Contact us: <a href="mailto:support@casino_naeb.com">support@casino_naeb.com</a></p>
+    <p>All rights reserved © Casino_naeb.com</p>
+</footer>
+
 <script>
 const symbols = ['🍒', '💎', '7️⃣', '🔔', '🍋', '⭐️'];
 let balance = 1000;
@@ -178,7 +204,7 @@ window.onload = () => {
         balance = state.balance;
         debt = state.debt;
         updateBalance(0);
-        message.textContent = "Добро пожаловать обратно!";
+        message.textContent = "Welcome back!";
         message.style.color = "#4CAF50";
     }
 };
@@ -192,14 +218,14 @@ function updateBalance(amount) {
 
 function takeLoan() {
     if (debt > 0) {
-        message.textContent = "Вы уже взяли кредит! Погасите долг перед новым займом.";
+        message.textContent = "You already have a loan! Repay the debt before taking another.";
         message.style.color = "red";
         return;
     }
     debt = 500;
     const loanAmount = debt;
     updateBalance(loanAmount);
-    message.textContent = `Вы взяли кредит на $${loanAmount}. Долг необходимо погасить с 10% процентами.`;
+    message.textContent = `You have taken a loan of $${loanAmount}. Repayment includes 10% interest.`;
     message.style.color = "#d32f2f";
     saveGameState();
 }
@@ -209,12 +235,12 @@ function repayLoan() {
     if (balance >= repaymentAmount) {
         updateBalance(-repaymentAmount);
         debt = 0;
-        message.textContent = "Кредит успешно погашен!";
+        message.textContent = "Loan successfully repaid!";
         message.style.color = "#4CAF50";
         updateRepayButtonVisibility();
         saveGameState();
     } else {
-        message.textContent = "Недостаточно средств для погашения кредита!";
+        message.textContent = "Not enough balance to repay the loan!";
         message.style.color = "red";
     }
 }
@@ -242,12 +268,12 @@ function getRandomSymbol() {
 function spin() {
     const bet = parseInt(betInput.value);
     if (bet > balance) {
-        message.textContent = "Недостаточно средств!";
+        message.textContent = "Not enough balance!";
         message.style.color = "red";
         return;
     }
     updateBalance(-bet);
-    message.textContent = "Спин...";
+    message.textContent = "Spinning...";
     message.style.color = "white";
     
     const results = reels.map(reel => {
@@ -269,15 +295,15 @@ function spin() {
         if (finalSymbols.every(symbol => symbol === finalSymbols[0])) {
             const winAmount = bet * 10;
             updateBalance(winAmount);
-            message.textContent = `Jackpot! Вы выиграли $${winAmount}!`;
+            message.textContent = `Jackpot! You won $${winAmount}!`;
             message.style.color = "#4CAF50";
         } else if (finalSymbols[0] === finalSymbols[1] || finalSymbols[1] === finalSymbols[2]) {
             const winAmount = bet * 2;
             updateBalance(winAmount);
-            message.textContent = `Вы выиграли $${winAmount}!`;
+            message.textContent = `You won $${winAmount}!`;
             message.style.color = "#34a853";
         } else {
-            message.textContent = "Попробуйте снова!";
+            message.textContent = "Try again!";
             message.style.color = "white";
         }
     });
