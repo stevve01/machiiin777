@@ -170,9 +170,23 @@ const reels = [
     document.getElementById('reel3')
 ];
 
+// Load game state from local storage if available
+window.onload = () => {
+    const savedState = localStorage.getItem('slotMachineState');
+    if (savedState) {
+        const state = JSON.parse(savedState);
+        balance = state.balance;
+        debt = state.debt;
+        updateBalance(0);
+        message.textContent = "Добро пожаловать обратно!";
+        message.style.color = "#4CAF50";
+    }
+};
+
 function updateBalance(amount) {
     balance += amount;
     balanceDisplay.textContent = balance;
+    saveGameState();
     updateRepayButtonVisibility();
 }
 
@@ -187,6 +201,7 @@ function takeLoan() {
     updateBalance(loanAmount);
     message.textContent = `Вы взяли кредит на $${loanAmount}. Долг необходимо погасить с 10% процентами.`;
     message.style.color = "#d32f2f";
+    saveGameState();
 }
 
 function repayLoan() {
@@ -197,6 +212,7 @@ function repayLoan() {
         message.textContent = "Кредит успешно погашен!";
         message.style.color = "#4CAF50";
         updateRepayButtonVisibility();
+        saveGameState();
     } else {
         message.textContent = "Недостаточно средств для погашения кредита!";
         message.style.color = "red";
@@ -209,6 +225,14 @@ function updateRepayButtonVisibility() {
     } else {
         repayLoanBtn.style.display = "none";
     }
+}
+
+function saveGameState() {
+    const state = {
+        balance: balance,
+        debt: debt
+    };
+    localStorage.setItem('slotMachineState', JSON.stringify(state));
 }
 
 function getRandomSymbol() {
@@ -261,5 +285,6 @@ function spin() {
 </script>
 </body>
 </html>
+
 
 
