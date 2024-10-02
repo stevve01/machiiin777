@@ -1,131 +1,135 @@
-
 <!DOCTYPE html>
-<html><head><base href="https://example.com"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>777 Classic Slot Machine - Enhanced Mobile</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ff4d4d;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding-top: 20px;
-    overflow: hidden;
-}
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    width: 90%;
-    max-width: 400px;
-}
-.balance-container {
-    display: flex;
-    align-items: center;
-}
-.balance {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-}
-.money-icon {
-    font-size: 28px;
-    margin-right: 10px;
-}
-.recharge-btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.recharge-btn:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-.slot-machine {
-    background-color: #ffd700;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 400px;
-}
-.display {
-    background-color: white;
-    border: 5px solid #ffd700;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-.reel {
-    width: 80px;
-    height: 120px;
-    background-color: white;
-    border: 2px solid #ff4d4d;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    font-weight: bold;
-    color: #ff4d4d;
-    transition: transform 0.3s;
-}
-.spin-btn {
-    background-color: #ffff00;
-    border: none;
-    border-radius: 10px;
-    color: #ff4d4d;
-    padding: 15px 30px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 100%;
-}
-.spin-btn:hover {
-    background-color: #ffff66;
-    transform: scale(1.05);
-}
-.message {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-top: 10px;
-    min-height: 25px;
-    transition: color 0.3s;
-}
-@media (max-width: 600px) {
-    .reel {
-        width: 60px;
-        height: 90px;
-        font-size: 40px;
-    }
-    .spin-btn {
-        font-size: 20px;
-        padding: 10px 20px;
-    }
-    .balance, .money-icon {
-        font-size: 24px;
-    }
-}
-</style>
+<html>
+<head>
+    <base href="https://example.com">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>777 Classic Slot Machine - Enhanced Mobile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff4d4d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 20px;
+            overflow: hidden;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 400px;
+        }
+        .balance-container {
+            display: flex;
+            align-items: center;
+        }
+        .balance {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+        }
+        .money-icon {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+        .slot-machine {
+            background-color: #ffd700;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+        .display {
+            background-color: white;
+            border: 5px solid #ffd700;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .reel {
+            width: 80px;
+            height: 120px;
+            background-color: white;
+            border: 2px solid #ff4d4d;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: #ff4d4d;
+            transition: transform 0.3s;
+        }
+        .spin-btn {
+            background-color: #ffff00;
+            border: none;
+            border-radius: 10px;
+            color: #ff4d4d;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+        }
+        .spin-btn:hover {
+            background-color: #ffff66;
+            transform: scale(1.05);
+        }
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            min-height: 25px;
+            transition: color 0.3s;
+        }
+        .loan-btn {
+            background-color: #d32f2f;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .loan-btn:hover {
+            background-color: #c62828;
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .reel {
+                width: 60px;
+                height: 90px;
+                font-size: 40px;
+            }
+            .spin-btn {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+            .balance, .money-icon {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="top-bar">
@@ -133,7 +137,6 @@ body {
         <span class="money-icon">💰</span>
         <div class="balance">$<span id="balance">1000</span></div>
     </div>
-    <button class="recharge-btn" onclick="recharge()">💸 +1000</button>
 </div>
 <div class="slot-machine">
     <div class="display">
@@ -146,11 +149,13 @@ body {
 <div class="controls">
     <input type="number" id="betAmount" class="bet-input" min="1" max="100" value="10" placeholder="Enter bet amount">
     <button class="spin-btn" onclick="spin()">SPIN</button>
+    <button class="loan-btn" onclick="takeLoan()">💸 Взять кредит</button>
 </div>
 
 <script>
 const symbols = ['🍒', '💎', '7️⃣', '🔔', '🍋', '⭐️'];
 let balance = 1000;
+let debt = 0;
 const balanceDisplay = document.getElementById('balance');
 const betInput = document.getElementById('betAmount');
 const message = document.getElementById('message');
@@ -165,10 +170,26 @@ function updateBalance(amount) {
     balanceDisplay.textContent = balance;
 }
 
-function recharge() {
-    updateBalance(1000);
-    message.textContent = "Recharged $1000!";
-    message.style.color = "#4CAF50";
+function takeLoan() {
+    if (debt > 0) {
+        message.textContent = "Вы уже взяли кредит! Погасите долг перед новым займом.";
+        message.style.color = "red";
+        return;
+    }
+    debt = 500;
+    const loanAmount = debt;
+    updateBalance(loanAmount);
+    message.textContent = `Вы взяли кредит на $${loanAmount}. Долг необходимо погасить с 10% процентами.`;
+    message.style.color = "#d32f2f";
+}
+
+function repayLoan() {
+    if (balance >= debt * 1.1) {
+        updateBalance(-debt * 1.1);
+        debt = 0;
+        message.textContent = "Кредит успешно погашен!";
+        message.style.color = "#4CAF50";
+    }
 }
 
 function getRandomSymbol() {
@@ -178,12 +199,12 @@ function getRandomSymbol() {
 function spin() {
     const bet = parseInt(betInput.value);
     if (bet > balance) {
-        message.textContent = "Insufficient balance!";
+        message.textContent = "Недостаточно средств!";
         message.style.color = "red";
         return;
     }
     updateBalance(-bet);
-    message.textContent = "Spinning...";
+    message.textContent = "Спин...";
     message.style.color = "white";
     
     const results = reels.map(reel => {
@@ -205,18 +226,20 @@ function spin() {
         if (finalSymbols.every(symbol => symbol === finalSymbols[0])) {
             const winAmount = bet * 10;
             updateBalance(winAmount);
-            message.textContent = `Jackpot! You won $${winAmount}!`;
+            message.textContent = `Jackpot! Вы выиграли $${winAmount}!`;
             message.style.color = "#4CAF50";
         } else if (finalSymbols[0] === finalSymbols[1] || finalSymbols[1] === finalSymbols[2]) {
             const winAmount = bet * 2;
             updateBalance(winAmount);
-            message.textContent = `You won $${winAmount}!`;
+            message.textContent = `Вы выиграли $${winAmount}!`;
             message.style.color = "#34a853";
         } else {
-            message.textContent = "Try again!";
+            message.textContent = "Попробуйте снова!";
             message.style.color = "white";
         }
     });
 }
 </script>
-</body></html>
+</body>
+</html>
+
